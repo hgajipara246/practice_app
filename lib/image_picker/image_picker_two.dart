@@ -1,67 +1,62 @@
-// import 'dart:io';
-//
-// import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
-// import 'package:video_player/video_player.dart';
-//
-// class ImagePickerTwo extends StatefulWidget {
-//   const ImagePickerTwo({Key? key}) : super(key: key);
-//
-//   @override
-//   State<ImagePickerTwo> createState() => _ImagePickerTwoState();
-// }
-//
-// class _ImagePickerTwoState extends State<ImagePickerTwo> {
-//   late File _cameraVideo;
-//   late File _video;
-//   late final  File pickVideo;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.grey,
-//       appBar: AppBar(
-//         backgroundColor: Colors.black,
-//         title: Text(
-//           "Video Picker",
-//           style: TextStyle(
-//             backgroundColor: Colors.transparent,
-//             fontSize: 20,
-//           ),
-//         ),
-//         centerTitle: true,
-//       ),
-//       body: SafeArea(
-//         child: Column(
-//           children: [
-//             ElevatedButton(
-//                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
-//                 child: const Text('Select video from Gallery and Camera'),
-//                 onPressed: () async {
-//                   XFile? video = await ImagePicker.pickVideo(source: ImageSource.gallery);
-//                   var _video = video as File;
-//                   var _videoPlayerController = VideoPlayerController.file(_video)
-//                     ..initialize().then((_) {
-//                       setState(() {});
-//                       _videoPlayerController.play();
-//                     });
-//                 }),
-//             ElevatedButton(
-//                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
-//                 child: const Text('Select video from Gallery and Camera'),
-//                 onPressed: _pickVideoFromCamera() async {
-//     XFile? video = await ImagePicker.pickVideo(source: ImageSource.camera);
-//     _cameraVideo = video as File;
-//     var _cameraVideoPlayerController = VideoPlayerController.file(_cameraVideo)..initialize().then((_) {
-//     setState(() { });
-//     _cameraVideoPlayerController.play();
-//     });
-//
-//     },
-//                 }),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:video_player/video_player.dart';
+
+class VideoSelector extends StatefulWidget {
+  const VideoSelector({Key? key}) : super(key: key);
+
+  @override
+  State<VideoSelector> createState() => _VideoSelectorState();
+}
+
+class _VideoSelectorState extends State<VideoSelector> {
+  File? _video;
+  VideoPlayerController? _videoPlayerController;
+  final picker = ImagePicker();
+  _pickVideo() async {
+    final video = await picker.pickVideo(source: ImageSource.gallery);
+    _video = File(video!.path);
+    _videoPlayerController = VideoPlayerController.file(_video!)
+      ..initialize().then((value) {
+        setState(() {});
+
+        _videoPlayerController!.play();
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Video Player"),
+        ),
+        body: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                if (_video != null)
+                  _videoPlayerController!.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio: _videoPlayerController!.value.aspectRatio,
+                          child: VideoPlayer(_videoPlayerController!),
+                        )
+                      : Container()
+                else
+                  const Text("click on pick video to select video"),
+                ElevatedButton(
+                  onPressed: () {
+                    _pickVideo();
+                  },
+                  child: const Text("pick video file from gallery"),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

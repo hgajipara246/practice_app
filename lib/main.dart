@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:practice_app/image_picker/image_picker_one.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const ImagePickerOne(),
+      home: MyApp(),
     );
   }
 }
