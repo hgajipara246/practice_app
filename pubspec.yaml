@@ -41,6 +41,8 @@ dependencies:
   video_player: ^2.6.1
   carousel_slider: ^4.2.1
   volume_controller: ^2.0.6
+  razorpay_flutter:
+  platform_builder: ^3.0.0
 
 
 dev_dependencies:

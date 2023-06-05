@@ -1,7 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class MediaQueryOne extends StatefulWidget {
   const MediaQueryOne({super.key});
@@ -13,8 +10,8 @@ class MediaQueryOne extends StatefulWidget {
 class _MediaQueryOneState extends State<MediaQueryOne> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height / 10;
-    double width = MediaQuery.of(context).size.height / 10;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -29,37 +26,37 @@ class _MediaQueryOneState extends State<MediaQueryOne> {
                 focusColor: Colors.black,
                 borderRadius: BorderRadius.circular(0),
                 child: Container(
-                  height: height,
-                  width: width,
+                  height: height / 10,
+                  width: width / 10,
                   color: Colors.red,
                 ),
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               Container(
-                height: height,
-                width: width,
+                height: height / 10,
+                width: width / 10,
                 color: Colors.green,
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               Container(
-                height: height,
-                width: width,
+                height: height / 10,
+                width: width / 10,
                 color: Colors.blue,
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               Container(
-                height: height,
-                width: width,
+                height: height / 10,
+                width: width / 10,
                 color: Colors.orange,
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               SizedBox(
                 height: height,
@@ -69,32 +66,32 @@ class _MediaQueryOneState extends State<MediaQueryOne> {
                   child: Row(
                     children: [
                       Container(
-                        height: height,
-                        width: width,
+                        height: height / 10,
+                        width: width / 10,
                         color: Colors.pink,
                       ),
                       SizedBox(
-                        width: width,
+                        width: width / 10,
                       ),
                       Container(
-                        height: height,
-                        width: width,
+                        height: height / 10,
+                        width: width / 10,
                         color: Colors.yellow,
                       ),
                       SizedBox(
-                        width: width,
+                        width: width / 10,
                       ),
                       Container(
-                        height: height,
-                        width: width,
+                        height: height / 10,
+                        width: width / 10,
                         color: Colors.black,
                       ),
                       SizedBox(
-                        width: width,
+                        width: width / 10,
                       ),
                       Container(
-                        height: height,
-                        width: width,
+                        height: height / 10,
+                        width: width / 10,
                         color: Colors.pinkAccent,
                       ),
                     ],
@@ -102,35 +99,35 @@ class _MediaQueryOneState extends State<MediaQueryOne> {
                 ),
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               Container(
-                height: height,
-                width: width,
+                height: height / 10,
+                width: width / 10,
                 color: Colors.purpleAccent,
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               Container(
-                height: height,
-                width: width,
+                height: height / 10,
+                width: width / 10,
                 color: Colors.deepPurpleAccent,
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               Container(
-                height: height,
-                width: width,
+                height: height / 10,
+                width: width / 10,
                 color: Colors.lightGreenAccent,
               ),
               SizedBox(
-                height: height,
+                height: height / 10,
               ),
               Container(
-                height: height,
-                width: width,
+                height: height / 10,
+                width: width / 10,
                 color: Colors.teal,
               ),
             ],

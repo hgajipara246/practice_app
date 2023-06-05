@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice_app/media_query.dart';
+import 'package:practice_app/page_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: MediaQueryOne(),
+      home: const PageViewScreen(),
     );
   }
 }
