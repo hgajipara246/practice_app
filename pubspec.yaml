@@ -43,6 +43,8 @@ dependencies:
   volume_controller: ^2.0.6
   razorpay_flutter:
   platform_builder: ^3.0.0
+  loop_page_view: ^1.2.2
+  calendar_date_picker2: ^0.5.2
 
 
 dev_dependencies:
